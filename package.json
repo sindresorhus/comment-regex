@@ -1,6 +1,6 @@
 {
   "name": "comment-regex",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Regular expression for matching JavaScript comments",
   "license": "MIT",
   "repository": "sindresorhus/comment-regex",
