@@ -1,21 +1,17 @@
-'use strict';
-var test = require('ava');
-var commentRegex = require('./');
+import test from 'ava';
+import m from './';
 
-test('regexComment()', function (t) {
-	var res = '/* unicorn */\nvar foo = true;\nvar unicorn = "rainbows"; // rainbow'.match(commentRegex());
-	t.assert(res[0] === '/* unicorn */');
-	t.assert(res[1] === ' // rainbow');
-	t.end();
+test('regexComment()', t => {
+	const res = '/* unicorn */\nvar foo = true;\nvar unicorn = "rainbows"; // rainbow'.match(m());
+	t.is(res[0], '/* unicorn */');
+	t.is(res[1], ' // rainbow');
 });
 
-test('regexComment.line()', function (t) {
-	t.assert('var unicorn = "rainbows"; // rainbow'.match(commentRegex.line())[0] === ' // rainbow');
-	t.assert('var foo = "http://sindresorhus.com"; // rainbow'.match(commentRegex.line())[0] === ' // rainbow');
-	t.end();
+test('regexComment.line()', t => {
+	t.is('var unicorn = "rainbows"; // rainbow'.match(m.line())[0], ' // rainbow');
+	t.is('var foo = "http://sindresorhus.com"; // rainbow'.match(m.line())[0], ' // rainbow');
 });
 
-test('regexComment.block()', function (t) {
-	t.assert('/* unicorn */\nvar foo = true;'.match(commentRegex.block())[0] === '/* unicorn */');
-	t.end();
+test('regexComment.block()', t => {
+	t.is('/* unicorn */\nvar foo = true;'.match(m.block())[0], '/* unicorn */');
 });
