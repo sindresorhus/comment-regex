@@ -2,29 +2,29 @@
 
 > Regular expression for matching JavaScript comments
 
-*This is pretty fragile and created for perf reasons where using a real parser would be overkill.*
+*This is pretty fragile and created for performance reasons where using a real parser would be overkill.*
 
 
 ## Install
 
-```sh
-$ npm install --save comment-regex
+```
+$ npm install comment-regex
 ```
 
 
 ## Usage
 
 ```js
-var commentRegex = require('comment-regex');
+const commentRegex = require('comment-regex');
 
-// contains a comment
+// Contains a comment
 commentRegex().test('/* unicorn */\nvar foo = true;');
 //=> true
 
-// get the contents of a comment
+// Get the contents of a comment
 commentRegex().exec('/* unicorn */\nvar foo = true;')[2].trim();
 
-// get all the comments
+// Get all the comments
 '/* unicorn */\nvar foo = true;\nvar unicorn = "rainbows"; // rainbow'.match(commentRegex());
 //=> ['/* unicorn */', ' // rainbow']
 ```
@@ -49,4 +49,4 @@ Returns a regex for matching block comments.
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)
