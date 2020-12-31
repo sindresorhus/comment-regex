@@ -1,4 +1,4 @@
-# comment-regex [![Build Status](https://travis-ci.org/sindresorhus/comment-regex.svg?branch=master)](https://travis-ci.org/sindresorhus/comment-regex)
+# comment-regex
 
 > Regular expression for matching JavaScript comments
 
