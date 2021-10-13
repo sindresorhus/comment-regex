@@ -1,17 +1,17 @@
 import test from 'ava';
-import commentRegex from '.';
+import {commentRegex, lineCommentRegex, blockCommentRegex} from './index.js';
 
-test('regexComment()', t => {
+test('commentRegex()', t => {
 	const result = '/* unicorn */\nvar foo = true;\nvar unicorn = "rainbows"; // rainbow'.match(commentRegex());
 	t.is(result[0], '/* unicorn */');
 	t.is(result[1], ' // rainbow');
 });
 
-test('regexComment.line()', t => {
-	t.is('var unicorn = "rainbows"; // rainbow'.match(commentRegex.line())[0], ' // rainbow');
-	t.is('var foo = "http://sindresorhus.com"; // rainbow'.match(commentRegex.line())[0], ' // rainbow');
+test('lineCommentRegex()', t => {
+	t.is('var unicorn = "rainbows"; // rainbow'.match(lineCommentRegex())[0], ' // rainbow');
+	t.is('var foo = "http://sindresorhus.com"; // rainbow'.match(lineCommentRegex())[0], ' // rainbow');
 });
 
-test('regexComment.block()', t => {
-	t.is('/* unicorn */\nvar foo = true;'.match(commentRegex.block())[0], '/* unicorn */');
+test('blockCommentRegex()', t => {
+	t.is('/* unicorn */\nvar foo = true;'.match(blockCommentRegex())[0], '/* unicorn */');
 });

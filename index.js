@@ -1,9 +1,11 @@
-'use strict';
+export function lineCommentRegex() {
+	return /(?:^|\s)\/\/(.+?)$/gms;
+}
 
-const comment = () => new RegExp(`(?:${comment.line().source})|(?:${comment.block().source})`, 'gms');
+export function blockCommentRegex() {
+	return /\/\*(.*?)\*\//gms;
+}
 
-comment.line = () => /(?:^|\s)\/\/(.+?)$/gms;
-
-comment.block = () => /\/\*(.*?)\*\//gms;
-
-module.exports = comment;
+export function commentRegex() {
+	return new RegExp(`(?:${lineCommentRegex().source})|(?:${blockCommentRegex().source})`, 'gms');
+}
