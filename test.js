@@ -9,7 +9,7 @@ test('commentRegex()', t => {
 
 test('lineCommentRegex()', t => {
 	t.is('var unicorn = "rainbows"; // rainbow'.match(lineCommentRegex())[0], ' // rainbow');
-	t.is('var foo = "http://sindresorhus.com"; // rainbow'.match(lineCommentRegex())[0], ' // rainbow');
+	t.is('var foo = "https://sindresorhus.com"; // rainbow'.match(lineCommentRegex())[0], ' // rainbow');
 });
 
 test('blockCommentRegex()', t => {
