@@ -2,7 +2,7 @@
 
 > Regular expression for matching JavaScript comments
 
-*This is pretty fragile and created for performance reasons where using a real parser would be overkill. Do not use it with untrusted user input.*
+*This is pretty fragile and created for performance reasons where using a real parser would be overkill.*
 
 ## Install
 
@@ -42,3 +42,9 @@ Returns a regex for matching line comments.
 ### blockCommentRegex()
 
 Returns a regex for matching block comments.
+
+## Important
+
+If you run the regex against untrusted user input in a server context, you should [give it a timeout](https://github.com/sindresorhus/super-regex).
+
+**I do not consider ReDoS a valid vulnerability for this package.**
